@@ -19,7 +19,7 @@ Ensure your computer, the AlphaMini robot, and your Android phone are all connec
 
 ---
 
-## 2: **Unity Project Configuration**
+## **Unity Project Configuration**
 
 This phase configures your Unity project to work with the XREAL SDK and your local network.
 
@@ -31,13 +31,13 @@ This phase configures your Unity project to work with the XREAL SDK and your loc
 ### 2. Download & Import XREAL SDK
 
 * Go to the official XREAL Developer website to download the latest **NRSDK for Unity**.
-* In Unity, import the downloaded `.unitypackage` file by navigating to **Assets > Import Package > Custom Package...**.
+* In Unity, import the downloaded .unitypackage file by navigating to **Assets > Import Package > Custom Package...**.
 
 ### 3. **Configure** Player Settings
 
 * Go to **Edit > Project Settings > Player**.
 * Under the **Android** tab, ensure the following are set correctly:
-    * **Package Name:** This must be a unique name (e.g., `com.yourcompany.alphaminixr`).
+    * **Package Name:** This must be a unique name (e.g., com.yourcompany.alphaminixr).
     * **Minimum API Level:** Set according to the XREAL SDK's recommendations.
     * * **Scripting Backend:** IL2CPP
     * * **Target Architecures:** ARM64
@@ -48,15 +48,15 @@ This phase configures your Unity project to work with the XREAL SDK and your loc
 
 This is a crucial step to allow your app to communicate with the Python script on your local network.
 
-* **Create the Required Folder Structure:** Go to `Assets/Plugins/Android/`. Create a folder named **`networkconfig.androidlib`**.
-* Inside that `.androidlib` folder, you will need to create three files we discussed previously: `network_security_config.xml`, `AndroidManifest.xml`, and `build.gradle`.
+* **Create the Required Folder Structure:** Go to Assets/Plugins/Android/. Create a folder named **networkconfig.androidlib**.
+* Inside that .androidlib folder, you will need to create three files we discussed previously: network_security_config.xml, AndroidManifest.xml, and build.gradle.
 
-#### a. `network_security_config.xml`
+#### a. network_security_config.xml
 
 This file explicitly tells Android to allow unencrypted (cleartext) traffic, which is necessary for your local TCP connection.
 
-* Inside your `networkconfig.androidlib` folder, create the path `res/xml/`.
-* Create a file named `network_security_config.xml` inside the `xml` folder and paste this code:
+* Inside your networkconfig.androidlib folder, create the path res/xml/.
+* Create a file named network_security_config.xml inside the xml folder and paste this code:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -69,11 +69,11 @@ This file explicitly tells Android to allow unencrypted (cleartext) traffic, whi
     </network-security-config>
     ```
 
-#### b. `AndroidManifest.xml` (For the Library)
+#### b. AndroidManifest.xml (For the Library)
 
 This is a minimal manifest for the library itself.
 
-* Inside the root of the `networkconfig.androidlib` folder, create a file named `AndroidManifest.xml` and paste this code:
+* Inside the root of the networkconfig.androidlib folder, create a file named AndroidManifest.xml and paste this code:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -83,11 +83,11 @@ This is a minimal manifest for the library itself.
     </manifest>
     ```
 
-#### c. `build.gradle` (For the Library)
+#### c. build.gradle (For the Library)
 
 This file tells Unity how to correctly package your library.
 
-* Inside the root of the `networkconfig.androidlib` folder, create a file named `build.gradle` and paste this code:
+* Inside the root of the networkconfig.androidlib folder, create a file named build.gradle and paste this code:
 
     ```groovy
     plugins {
@@ -101,15 +101,15 @@ This file tells Unity how to correctly package your library.
 
 ---
 
-## Phase 3: Unity Scene Setup
+## Unity Scene Setup
 
 Now, prepare your main scene to run the scripts.
 
 ### 1. Add Your Scripts to the Scene
 
-* Create an empty GameObject and name it **NetworkManager**. Attach your `TCPClient.cs`
-* Create another empty GameObject and name it **MainThreadManagerr**. Attach your ``MainThreadDispatcher.cs` scripts to this object.
-* Create another GameObject to handle your visuals if not already done (e.g., **SphereManager**) and attach your visual logic script (`SphereController.cs`) to it.
+* Create an empty GameObject and name it **NetworkManager**. Attach your TCPClient.cs
+* Create another empty GameObject and name it **MainThreadManagerr**. Attach your MainThreadDispatcher.cs scripts to this object.
+* Create another GameObject to handle your visuals if not already done (e.g., **SphereManager**) and attach your visual logic script (SphereController.cs) to it.
 
 ### 2. Link the Scripts in the Inspector
 
@@ -120,16 +120,16 @@ Now, prepare your main scene to run the scripts.
 
 ---
 
-## Phase 4: Building the Unity App (.apk)
+## Building the Unity App (.apk)
 
 * Go to **File > Build Settings...**.
 * Click the **"Add Open Scenes"** button to add your configured scene to the build list.
 * Connect your Android phone to your computer with a USB cable.
-* Click the **"Build and Run"** button. Unity will compile your project, create an `.apk` file, and automatically install it on your phone.
+* Click the **"Build and Run"** button. Unity will compile your project, create an .apk file, and automatically install it on your phone.
 
 ---
 
-## Phase 5: The Runtime Workflow
+## The Runtime Workflow
 
 This is the final sequence to run the full experience.
 
