@@ -1,10 +1,8 @@
 # AlphaMini Guided Breathing with Unity and XREAL Glasses
 
-This document outlines the complete setup and workflow for connecting an **AlphaMini robot** to a **Unity application**, creating an immersive, synchronized breathing experience on **XREAL glasses**.
+This documentation is based on personal work completed during my internship at Medisc Medical Laboratory in South Korea.
 
-The core of this project is a local network connection, where a Python script acts as a server to control the Unity app running on your phone.
-
-***
+It outlines the full setup and workflow for connecting an AlphaMini robot to a Unity application, creating a synchronised breathing experience using XREAL glasses. The guide covers network configuration, Unity project setup, Android configuration, and the runtime process required to run the system successfully.
 
 ## Setup
 
@@ -17,7 +15,6 @@ Ensure your computer, the AlphaMini robot, and your Android phone are all connec
 * **Python:** Your Python environment should have the *ubt-mini-sdk* and *pyserial* libraries installed.
 * **Unity:** You should have Unity Hub and the correct Unity Editor version **(2022.3.28f1)** with Android Build Support installed.
 
----
 
 ## **Unity Project Configuration**
 
